@@ -63,13 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="TopDownShooter.CSharp.Plugins.csproj">
-      <Project>{27A7DF45-E6FF-5AF3-2CC3-9B9B164988B7}</Project>
-      <Name>TopDownShooter.CSharp.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\BulletAlly.cs" />
+    <Compile Include="Assets\Scripts\CameraFollowPlayerMouse.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RotateToMouse.cs" />
   </ItemGroup>
