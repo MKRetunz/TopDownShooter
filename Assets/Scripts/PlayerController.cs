@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+    PlayerStats statRef;
+
+
     private float MovementSpeed;
     private float Attackspeed;
     private float Cooldown;
@@ -11,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        statRef = new PlayerStats();
 
         MovementSpeed = 10;
         Attackspeed = 0.5f;
