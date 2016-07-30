@@ -7,11 +7,6 @@ public class RotateToMouse : MonoBehaviour {
     private Vector3 object_pos;
     private float angle;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
         mouse_pos = Input.mousePosition;
