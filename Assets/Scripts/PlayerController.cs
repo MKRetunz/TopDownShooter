@@ -4,10 +4,10 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
     PlayerStats statRef;
 
-    private int health;
-    private int armor;
-    private int melee;
-    private int ranged;
+    private float health;
+    private float armor;
+    private float melee;
+    private float ranged;
 
     private int mechSize; //0 Small, 1 Medium, 2 Large
 
@@ -67,8 +67,26 @@ public class PlayerController : MonoBehaviour {
     void getStats ()
     {
         health = statRef.GetHealth(mechSize);
+        armor = statRef.GetArmor();
+        melee = statRef.GetMelee();
+        ranged = statRef.GetRange();
+        movementSpeed = statRef.GetSpeed();
+        regenspeed = statRef.GetRegen();
 
-        Debug.Log(health);
+        float charAg = statRef.GetAgility();
+        movementSpeed *= charAg;
+
+        float chardef = statRef.GetDefense();
+        armor *= chardef;
+
+        float charStr = statRef.GetStrength();
+        melee *= charStr;
+
+        float charDex = statRef.GetDexterity();
+        ranged *= charDex;
+
+        float charRep = statRef.GetRepair();
+        regenspeed *= charRep;
     }
 
     void FireBullet ()

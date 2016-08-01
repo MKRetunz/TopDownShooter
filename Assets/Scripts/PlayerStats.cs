@@ -13,12 +13,12 @@ public class PlayerStats : MonoBehaviour {
     private float fireRateMech;
 
     //Character stats
-    private int agilityChar;
-    private int defenseChar;
-    private int strengthChar;
-    private int dexterityChar;
+    private float agilityChar;
+    private float defenseChar;
+    private float strengthChar;
+    private float dexterityChar;
 
-    private int repairChar;
+    private float repairChar;
 
     // Use this for initialization
     void Start () {
@@ -102,5 +102,40 @@ public class PlayerStats : MonoBehaviour {
         fireRateMech = 1f;
 
         return fireRateMech;
+    }
+
+    public float GetAgility()
+    {
+        agilityChar = 1f;
+
+        return agilityChar;
+    }
+
+    public float GetDefense()
+    {
+        defenseChar = 1f;
+
+        return defenseChar;
+    }
+
+    public float GetStrength()
+    {
+        strengthChar = 1f;
+
+        return strengthChar;
+    }
+
+    public float GetDexterity()
+    {
+        dexterityChar = 1f;
+
+        return dexterityChar;
+    }
+
+    public float GetRepair()
+    {
+        repairChar = 1f;
+
+        return repairChar;
     }
 }
