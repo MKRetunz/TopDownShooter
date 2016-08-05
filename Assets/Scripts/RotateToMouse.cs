@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class RotateToMouse : MonoBehaviour {
-    private Transform target;
     private Vector3 mouse_pos;
     private Vector3 object_pos;
     private float angle;

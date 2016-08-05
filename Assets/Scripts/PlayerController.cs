@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     private int mechSize; //0 Small, 1 Medium, 2 Large
 
+    public float damage;
     private float movementSpeed;
     private float attackSpeed;
     private float regenspeed;
@@ -24,23 +25,30 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         statRef = new PlayerStats();
 
+        mechSize = 1;
+
         movementSpeed = 10f;
         attackSpeed = 0.5f;
 
+        damage = 1;
+
         Head = transform.FindChild("Head");
 
-        //getStats();
+        //Setting stats
+        getStats();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //Setting stats
+        //Alive check
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
 
-        getStats();
-        
+
         //Controlls
-
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(0, movementSpeed * Time.deltaTime, 0);

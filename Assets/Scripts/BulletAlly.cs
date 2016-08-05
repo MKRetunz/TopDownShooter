@@ -9,6 +9,8 @@ public class BulletAlly : MonoBehaviour {
 	void Start () {
         Speed = 20;
         SelfDeleteTimer = 0.0f;
+
+        gameObject.tag = "Bullet(Player)";
 	}
 	
 	// Update is called once per frame

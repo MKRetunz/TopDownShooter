@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletAlly.cs" />
     <Compile Include="Assets\Scripts\CameraFollowPlayerMouse.cs" />
+    <Compile Include="Assets\Scripts\EnemyHandler.cs" />
+    <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\RotateToMouse.cs" />
