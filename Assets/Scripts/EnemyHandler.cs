@@ -34,18 +34,20 @@ public class EnemyHandler : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Bullet(Player)")
+        if(col.gameObject.tag == "BulletPlayer")
         {
             Damage(player.damage);
 
             Destroy(col.gameObject);
 
-            Debug.Log("yes");
+            Debug.Log(player.damage);
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        FireBullet();
 
         //Alive check
         if (health <= 0)
@@ -58,10 +60,17 @@ public class EnemyHandler : MonoBehaviour {
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 10);
+
+        transform.Translate(movementSpeed * Time.deltaTime, 0, 0);
     }
 
     void Damage(float i)
     {
         health -= (int)i;
+    }
+
+    void FireBullet()
+    {
+        GameObject Clone = (Instantiate(Bullet, transform.position, transform.rotation)) as GameObject;
     }
 }

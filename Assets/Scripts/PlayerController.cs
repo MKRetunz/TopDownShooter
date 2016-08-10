@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
     private int mechSize; //0 Small, 1 Medium, 2 Large
 
-    public float damage;
+    public float damage = 1;
     private float movementSpeed;
     private float attackSpeed;
     private float regenspeed;
@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour {
 
         movementSpeed = 10f;
         attackSpeed = 0.5f;
-
-        damage = 1;
 
         Head = transform.FindChild("Head");
 
