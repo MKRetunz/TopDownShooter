@@ -25,19 +25,24 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         statRef = new PlayerStats();
 
-        mechSize = 1;
-
-        movementSpeed = 10f;
-        attackSpeed = 0.5f;
-
         Head = transform.FindChild("Head");
 
-        //Setting stats
-        getStats();
+        //Setting stats: Default
+        getStats(1, 1);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "BulletEnemy")
+        {
+            TakeDamage();
+
+            Destroy(col.gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         //Alive check
         if(health <= 0)
@@ -45,6 +50,19 @@ public class PlayerController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //Testing 
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            getStats(1, 1);
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            getStats(2, 2);
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            getStats(3, 3);
+        }
 
         //Controlls
         if (Input.GetKey(KeyCode.W))
@@ -70,33 +88,52 @@ public class PlayerController : MonoBehaviour {
         cooldown += Time.deltaTime;
     }
 
-    void getStats ()
+    void getStats (int mechChoice, int charChoice)
     {
-        health = statRef.GetHealth(mechSize);
-        armor = statRef.GetArmor();
-        melee = statRef.GetMelee();
-        ranged = statRef.GetRange();
-        movementSpeed = statRef.GetSpeed();
-        regenspeed = statRef.GetRegen();
+        if (mechChoice == 1)
+        {
+            mechSize = 2;
+        }
+        if (mechChoice == 2)
+        {
+            mechSize = 1;
+        }
+        if (mechChoice == 3)
+        {
+            mechSize = 0;
+        }
 
-        float charAg = statRef.GetAgility();
+        health = statRef.GetHealth(mechSize);
+        armor = statRef.GetArmor(mechChoice);
+        melee = statRef.GetMelee(mechChoice);
+        ranged = statRef.GetRange(mechChoice);
+        movementSpeed = statRef.GetSpeed(mechChoice);
+        regenspeed = statRef.GetRegen(mechChoice);
+        attackSpeed = statRef.GetFireRate(mechChoice);
+
+        float charAg = statRef.GetAgility(charChoice);
         movementSpeed *= charAg;
 
-        float chardef = statRef.GetDefense();
+        float chardef = statRef.GetDefense(charChoice);
         armor *= chardef;
 
-        float charStr = statRef.GetStrength();
+        float charStr = statRef.GetStrength(charChoice);
         melee *= charStr;
 
-        float charDex = statRef.GetDexterity();
+        float charDex = statRef.GetDexterity(charChoice);
         ranged *= charDex;
 
-        float charRep = statRef.GetRepair();
+        float charRep = statRef.GetRepair(charChoice);
         regenspeed *= charRep;
     }
 
     void FireBullet ()
     {
         GameObject Clone = (Instantiate(Bullet, transform.position, Head.transform.rotation)) as GameObject;
+    }
+
+    void TakeDamage()
+    {
+        health -= 500;
     }
 }

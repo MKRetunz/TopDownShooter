@@ -48,11 +48,11 @@ public class PlayerStats : MonoBehaviour {
         {
             healthMech = 10000;
         }
-        if (size == 1)
+        else if (size == 1)
         {
             healthMech = 15000;
         }
-        if (size == 2)
+        else if (size == 2)
         {
             healthMech = 20000;
         }
@@ -62,79 +62,266 @@ public class PlayerStats : MonoBehaviour {
         return healthMech;
     }
 
-    public int GetSpeed()
+    public int GetSpeed(int mechNum)
     {
-        speedMech = 10;
+        if (mechNum == 1)
+        {
+            speedMech = 10;
+        }
+        else if (mechNum == 2)
+        {
+            speedMech = 20;
+        }
+        else if (mechNum == 3)
+        {
+            speedMech = 30;
+        }
+        else
+        {
+            speedMech = 0;
+
+            Debug.Log("Error handler");
+        }
 
         return speedMech;
     }
 
-    public int GetArmor()
+    public int GetArmor(int mechNum)
     {
-        armorMech = 1000;
+        if (mechNum == 1)
+        {
+            armorMech = 1000;
+        }
+        else if (mechNum == 2)
+        {
+            armorMech = 750;
+        }
+        else if (mechNum == 3)
+        {
+            armorMech = 500;
+        }
+        else
+        {
+            armorMech = 0;
+
+            Debug.Log("Error handler");
+        }
 
         return armorMech;
     }
 
-    public int GetMelee()
+    public int GetMelee(int mechNum)
     {
-        meleeMech = 100;
+        if (mechNum == 1)
+        {
+            meleeMech = 100;
+        }
+        else if (mechNum == 2)
+        {
+            meleeMech = 150;
+        }
+        else if (mechNum == 3)
+        {
+            meleeMech = 200;
+        }
+        else
+        {
+            meleeMech = 0;
+
+            Debug.Log("Error handler");
+        }
 
         return meleeMech;
     }
 
-    public int GetRange()
+    public int GetRange(int mechNum)
     {
-        rangeMech = 100;
+        if (mechNum == 1)
+        {
+            rangeMech = 100;
+        }
+        else if (mechNum == 2)
+        {
+            rangeMech = 150;
+        }
+        else if (mechNum == 3)
+        {
+            rangeMech = 200;
+        }
+        else
+        {
+            rangeMech = 0;
+
+            Debug.Log("Error handler");
+        }
 
         return rangeMech;
     }
 
-    public float GetRegen()
+    public float GetRegen(int mechNum)
     {
-        regenMech = 10f;
+        if (mechNum == 1)
+        {
+            regenMech = 10f;
+        }
+        else if (mechNum == 2)
+        {
+            regenMech = 10f;
+        }
+        else if (mechNum == 3)
+        {
+            regenMech = 7f;
+        }
+        else
+        {
+            regenMech = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return regenMech;
     }
 
-    public float GetFireRate()
+    public float GetFireRate(int mechNum)
     {
-        fireRateMech = 1f;
+        if (mechNum == 1)
+        {
+            fireRateMech = 1f;
+        }
+        else if (mechNum == 2)
+        {
+            regenMech = 10f;
+        }
+        else if (mechNum == 3)
+        {
+            regenMech = 7f;
+        }
+        else
+        {
+            regenMech = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return fireRateMech;
     }
 
-    public float GetAgility()
+    public float GetAgility(int charNum)
     {
-        agilityChar = 1f;
+        if (charNum == 1)
+        {
+            agilityChar = 1f;
+        }
+        else if (charNum == 2)
+        {
+            agilityChar = 0.5f;
+        }
+        else if (charNum == 3)
+        {
+            agilityChar = 2f;
+        }
+        else
+        {
+            agilityChar = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return agilityChar;
     }
 
-    public float GetDefense()
+    public float GetDefense(int charNum)
     {
-        defenseChar = 1f;
+        if (charNum == 1)
+        {
+            defenseChar = 1f;
+        }
+        else if (charNum == 2)
+        {
+            defenseChar = 2f;
+        }
+        else if (charNum == 3)
+        {
+            defenseChar = 0.5f;
+        }
+        else
+        {
+            defenseChar = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return defenseChar;
     }
 
-    public float GetStrength()
+    public float GetStrength(int charNum)
     {
-        strengthChar = 1f;
+        if (charNum == 1)
+        {
+            strengthChar = 1f;
+        }
+        else if (charNum == 2)
+        {
+            strengthChar = 1.5f;
+        }
+        else if (charNum == 3)
+        {
+            strengthChar = 2f;
+        }
+        else
+        {
+            strengthChar = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return strengthChar;
     }
 
-    public float GetDexterity()
+    public float GetDexterity(int charNum)
     {
-        dexterityChar = 1f;
+        if (charNum == 1)
+        {
+            dexterityChar = 1f;
+        }
+        else if (charNum == 2)
+        {
+            dexterityChar = 1.25f;
+        }
+        else if (charNum == 3)
+        {
+            dexterityChar = 0.75f;
+        }
+        else
+        {
+            dexterityChar = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return dexterityChar;
     }
 
-    public float GetRepair()
+    public float GetRepair(int charNum)
     {
-        repairChar = 1f;
+        if (charNum == 1)
+        {
+            repairChar = 1f;
+        }
+        else if (charNum == 2)
+        {
+            repairChar = 1.25f;
+        }
+        else if (charNum == 3)
+        {
+            repairChar = 1f;
+        }
+        else
+        {
+            repairChar = 0f;
+
+            Debug.Log("Error handler");
+        }
 
         return repairChar;
     }
