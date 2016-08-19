@@ -5,7 +5,7 @@ public class EnemyHandler : MonoBehaviour {
     PlayerController player;
     SceneControl sceneControl;
 
-    public Transform target;
+    private Transform target;
     private Vector3 target_pos;
     private Vector3 object_pos;
 
@@ -30,6 +30,8 @@ public class EnemyHandler : MonoBehaviour {
         sceneControl = new SceneControl();
 
         gameObject.tag = "Enemy";
+
+        target = GameObject.FindWithTag("Player").transform;
 
         movementSpeed = 10f;
         attackSpeed = 0.5f;
