@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     PlayerStats statRef;
+    SceneControl sceneControl;
 
     private float health;
     private float armor;
@@ -24,6 +26,9 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         statRef = new PlayerStats();
+        sceneControl = new SceneControl();
+
+        gameObject.tag = "Player";
 
         Head = transform.FindChild("Head");
 
@@ -43,12 +48,6 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        //Alive check
-        if(health <= 0)
-        {
-            Destroy(gameObject);
-        }
 
         //Testing 
         if (Input.GetKey(KeyCode.Alpha1))
@@ -84,6 +83,7 @@ public class PlayerController : MonoBehaviour {
         if (cooldown >= attackSpeed && Input.GetMouseButton(0))
         {
             FireBullet();
+            cooldown = 0f;
         }
         cooldown += Time.deltaTime;
     }
@@ -125,6 +125,10 @@ public class PlayerController : MonoBehaviour {
 
         float charRep = statRef.GetRepair(charChoice);
         regenspeed *= charRep;
+
+
+        //Placeholder
+        damage = ranged * 100;
     }
 
     void FireBullet ()
@@ -135,5 +139,11 @@ public class PlayerController : MonoBehaviour {
     void TakeDamage()
     {
         health -= 500;
+
+        //Alive check
+        if (health <= 0)
+        {
+            sceneControl.PlayerDefeat();
+        }
     }
 }

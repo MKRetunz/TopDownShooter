@@ -36,22 +36,17 @@ public class EnemyStats : MonoBehaviour {
         repairChar = 0;
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public int GetHealth(int size)
     {
         if (size == 0)
         {
             healthMech = 10000;
         }
-        if (size == 1)
+        else if(size == 1)
         {
             healthMech = 15000;
         }
-        if (size == 2)
+        else if(size == 2)
         {
             healthMech = 20000;
         }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/TopDownShooterBase.unity
+- path: Assets/Scenes/TopDownShooterBase.unity
   isLoaded: 1
   isActive: 1

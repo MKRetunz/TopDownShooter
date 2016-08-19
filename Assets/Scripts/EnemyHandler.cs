@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyHandler : MonoBehaviour {
     PlayerController player;
+    SceneControl sceneControl;
 
     public Transform target;
     private Vector3 target_pos;
@@ -26,10 +27,15 @@ public class EnemyHandler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = new PlayerController();
+        sceneControl = new SceneControl();
+
+        gameObject.tag = "Enemy";
 
         movementSpeed = 10f;
         attackSpeed = 0.5f;
         health = 1;
+
+        sceneControl.EnemyEnter();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -39,8 +45,6 @@ public class EnemyHandler : MonoBehaviour {
             Damage(player.damage);
 
             Destroy(col.gameObject);
-
-            Debug.Log(player.damage);
         }
     }
 	
@@ -52,6 +56,8 @@ public class EnemyHandler : MonoBehaviour {
         //Alive check
         if (health <= 0)
         {
+            sceneControl.enemyDefeat();
+
             Destroy(gameObject);
         }
 
