@@ -1,1 +1,7 @@
 temp/
+ProjectSettings/
+Library/
+Assets/
+TopDownShooter.CSharp.csproj
+TopDownShooter.CSharp.Plugins.csproj
+TopDownShooter.sln
