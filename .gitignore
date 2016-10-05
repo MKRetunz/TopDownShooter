@@ -1,6 +1,3 @@
-temp/
-ProjectSettings/
-Library/
-Assets/
+/TopDownShooter/
 *.csproj
 *.sln
