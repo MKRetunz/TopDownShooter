@@ -1,5 +1,5 @@
 # TopDownShooter
-A top down shooter made in Unity by Martijn Klok (https://github.com/MKRetunz)
+A top down shooter made in Unity by Martijn Klok (https://github.com/MKlok)
 
 For now this project contains the basics for a top-down shooter game: 
  - enemy
